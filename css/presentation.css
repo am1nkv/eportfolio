@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    background-color : #02072c;
+    position: relative; /* Needed for particle container positioning */
+    margin: 0;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+/*CSS NAVIGATEUR*/
+nav {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #02072c;
+    position: sticky;
+    top: 0;
+    display: flex; /* ✅ Change ici */
+    justify-content: space-around;
+    padding: 40px;
+    font-family: Avenir, sans-serif;
+    align-items: center;
+    align-content: center;
+    z-index: 999; /* ✅ Assure que la navbar reste au-dessus */
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* ou space-evenly */
+    width: 100%; /* ✅ pour qu’il prenne toute la largeur */
+    max-width: 1200px; /* ✅ optionnel pour limiter la largeur */
+    margin: 0 auto; /* ✅ centrer la liste dans la navbar */
+    background-color: #02072c;
+}
+
+nav ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+    position: relative;
+    margin-right: 20px;
+    justify-content: space-evenly;
+}
+
+nav ul li a {
+    font-family: Avenir;
+    font-weight: bold;
+}
+
+nav li {
+    margin-right: 20px;
+}
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    font-family: Avenir;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: white;
+    font-family: Avenir, sans-serif;
+    top: -3px; /* déplacement vers le haut */
+    text-shadow: 0 0 5px white, 0 0 10px white; /* effet de brillance */
+}
+
+
+.sousmenu{
+    font-family: Avenir, sans-serif;
+    display: none;
+    position: absolute;
+    box-shadow: 0px 1px 2px #CCC;
+    width: 100%;
+    z-index: 1000;
+    color: #141a55;
+}
+nav > ul li:hover .sousmenu{
+    display: block;
+}
+
+.sousmenu li{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+.sousmenu a{
+    padding: 10px;
+    border-bottom: none;
+    color: #141a55;
+}
+.sousmenu a:hover{
+    border-bottom: none;
+    color: #141a55;
+}
+
+.deroulant > a:after{
+    content: contents;
+    font-size: 12px;
+    color: #141a55;
+}
+
+.deroulant ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 8%;
+    padding: 10px;
+}
+
+.deroulant:hover ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.deroulant ul li {
+    margin: 5px 0;
+}
+/*FIN CSS NAVIGATEUR*/
+
+/* Main Content Area */
+main {
+    padding: 4em 2em; /* More padding */
+    text-align: center;
+}
+
+main section {
+    padding-top: 0;
+    margin-bottom: 3em;
+}
+
+#imageAmina {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+.img-amina {
+    width: 300px;      /* ou en % pour responsive : 50% */
+    height: auto;      /* garde les proportions */
+    max-width: 100%;   /* évite de dépasser le conteneur */
+    border-radius: 10px; /* arrondi optionnel */
+}
+
+
+#presentation h1 {
+    color: #ffffff; /* Match nav color */
+    margin-bottom: 0.5em;
+    margin-top: 0em;
+    font-size: 3em;
+    padding: 0.5em;
+    font-family: 'Press Start 2P', sans-serif;
+}
+#presentation p {
+    color: #ffffff; /* Match nav color */
+    margin-bottom: 0.5em;
+    font-family: Avenir, sans-serif;
+    font-size: 1.2em;
+}
+
+/* Particle Background Effect */
+#particles-container {
+    position: fixed; /* Use fixed to cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Place behind all content */
+    pointer-events: none; /* Allow clicks to go through */
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px; /* Start below the screen, adjusted for content size */
+    opacity: 0;
+    animation: float 10s infinite linear;
+    color: #e3baba; /* Bright green color for bits */
+    font-size: 1.5em; /* Make the bits visible */
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for tech look */
+    text-shadow: 0 0 5px rgb(227, 186, 186); /* Add a slight glow */
+    user-select: none; /* Prevent text selection */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7; /* Fade in with some transparency */
+    }
+    90% {
+        opacity: 0.7; /* Stay visible */
+    }
+    100% {
+        transform: translateY(-105vh) translateX(20px) rotate(360deg); /* Move up, slightly sideways, and rotate */
+        opacity: 0; /* Fade out */
+    }
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
+    nav ul li a {
+        padding: 0.8em 1.5em; /* Larger tap target on mobile */
+    }
+    main {
+        padding: 3em 1em;
+    }
+}

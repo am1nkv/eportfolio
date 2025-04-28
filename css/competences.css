@@ -18,7 +18,6 @@ body {
     position: relative; /* Needed for particle container positioning */
     margin: 0;
     font-family: sans-serif;
-    color: #333;
     min-height: 100vh;
 }
 
@@ -145,3 +144,161 @@ nav > ul li:hover .sousmenu{
     margin: 5px 0;
 }
 /*FIN CSS NAVIGATEUR*/
+
+main {
+    flex-grow: 1; /* Allow main to take up available space */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#competences {
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Limit content width */
+    margin-bottom: 40px;
+}
+
+#competences h2,
+#databases h2,
+#systems h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #eeeeff;
+    border-bottom: 2px solid #e3baba;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: Avenir, sans-serif;
+}
+
+#databases {
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Limit content width */
+    margin-bottom: 40px; /* Add margin like other sections */
+}
+
+#systems {
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Limit content width */
+    margin-bottom: 40px;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: space-around; /* Distribute logos evenly */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 50px; /* Space between logos */
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    animation: float 3s ease-in-out infinite; /* Apply floating animation */
+    object-fit: contain; /* Ensure images scale nicely if aspect ratio differs */
+}
+
+/* Specific Logo Styles & Animation Delays */
+.java-logo {
+    animation-delay: 0s;
+    width: 150px;
+    height: 150px;
+}
+
+.cpp-logo {
+    animation-delay: 0.5s; /* Stagger animation start */
+    width: 150px;
+    height: 150px;
+}
+
+.js-logo {
+    animation-delay: 1s; /* Stagger animation start */
+    width: 150px;
+    height: 150px;
+}
+
+.html-logo {
+    animation-delay: 2s;
+    width: 150px;
+    height: 150px;
+}
+
+.css-logo {
+    animation-delay: 2.5s;
+    width: 150px;
+    height: 150px;
+}
+
+.php-logo {
+    animation-delay: 3s;
+    width: 150px;
+    height: 150px;
+}
+
+/* Database Logo Styles & Animation Delays */
+.sql-logo {
+    animation-delay: 0s;
+    width: 300px;
+    height: 300px;
+}
+.sqlite-logo {
+    animation-delay: 0.5s;
+    width: 300px;
+    height: 300px;
+}
+.excel-logo {
+    animation-delay: 1s;
+    width: 200px;
+    height: 200px;
+}
+.access-logo {
+    animation-delay: 1.5s;
+    width: 200px;
+    height: 200px;
+}
+
+.linux-logo {
+    animation-delay: 2s;
+    width: 200px;
+    height: 200px;
+}
+
+.cisco-logo {
+    animation-delay: 2s;
+    width: 200px;
+    height: 200px;
+}
+
+.vbox-logo {
+    animation-delay: 2s;
+    width: 200px;
+    height: 200px;
+}
+
+
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px); /* Move up */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Pushes footer to the bottom */
+    background-color: #02072c;
+    font-size: 0.8em;
+    color: white;
+    font-family: "Press Start 2P", sans-serif;
+}

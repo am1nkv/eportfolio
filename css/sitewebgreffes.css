@@ -17,8 +17,10 @@ body {
     background-color : #02072c;
     position: relative; /* Needed for particle container positioning */
     margin: 0;
-    font-family: sans-serif;
     min-height: 100vh;
+    font-family: 'Avenir', sans-serif;
+    padding: 40px 0;
+    color: white;
 }
 
 
@@ -145,166 +147,110 @@ nav > ul li:hover .sousmenu{
 }
 /*FIN CSS NAVIGATEUR*/
 
-main {
-    flex-grow: 1; /* Allow main to take up available space */
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#competences {
+.portfolio-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
     text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
 }
 
-#competences h2,
-#databases h2,
-#systems h2 {
-    font-size: 2.5em;
+h1 {
+    color: white;
     margin-bottom: 40px;
-    color: #eeeeff;
+    font-size: 2.5em;
     border-bottom: 2px solid #e3baba;
     display: inline-block;
     padding-bottom: 10px;
-    font-family: Avenir, sans-serif;
 }
 
-#databases {
-    text-align: center;
+.carousel {
+    position: relative;
     width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px; /* Add margin like other sections */
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-#systems {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
-}
-
-.logos-container {
+.carousel-inner {
     display: flex;
-    justify-content: space-around; /* Distribute logos evenly */
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 50px; /* Space between logos */
-    padding: 20px 0;
+    transition: transform 0.5s ease;
 }
 
-.logo {
-    width: 100px; /* Adjust size as needed */
-    height: 100px;
-    animation: float 3s ease-in-out infinite; /* Apply floating animation */
-    object-fit: contain; /* Ensure images scale nicely if aspect ratio differs */
+.carousel-item {
+    min-width: 100%;
+    position: relative;
 }
 
-/* Specific Logo Styles & Animation Delays */
-.java-logo {
-    animation-delay: 0s;
-    width: 150px;
-    height: 150px;
+.carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
 }
 
-.cpp-logo {
-    animation-delay: 0.5s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
-
-.js-logo {
-    animation-delay: 1s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
-
-.html-logo {
-    animation-delay: 2s;
-    width: 150px;
-    height: 150px;
-}
-
-.css-logo {
-    animation-delay: 2.5s;
-    width: 150px;
-    height: 150px;
-}
-
-.php-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-.python-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-/* Database Logo Styles & Animation Delays */
-.sql-logo {
-    animation-delay: 0s;
-    width: 300px;
-    height: 300px;
-}
-.sqlite-logo {
-    animation-delay: 0.5s;
-    width: 300px;
-    height: 300px;
-}
-.excel-logo {
-    animation-delay: 1s;
-    width: 200px;
-    height: 200px;
-}
-.access-logo {
-    animation-delay: 1.5s;
-    width: 200px;
-    height: 200px;
-}
-
-.linux-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.cisco-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.vbox-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-
-/* Floating Animation */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-15px); /* Move up */
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: auto; /* Pushes footer to the bottom */
-    background-color: #02072c;
-    font-size: 0.8em;
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
     color: white;
-    font-family: "Press Start 2P", sans-serif;
+    padding: 15px;
+    text-align: center;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.5);
+    color: #2c3e50;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.carousel-control:hover {
+    background: rgba(255,255,255,0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: #2c3e50;
+}
+
+.project-description {
+    margin-top: 30px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }

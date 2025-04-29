@@ -145,157 +145,88 @@ nav > ul li:hover .sousmenu{
 }
 /*FIN CSS NAVIGATEUR*/
 
-main {
-    flex-grow: 1; /* Allow main to take up available space */
-    padding: 50px;
+.section-langues {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-langues h2 {
+    font-size: 2.5em;
+    margin: 0 auto 40px auto; /* Centrage horizontal avec margin auto */
+    color: #eeeeff;
+    border-bottom: 2px solid #e3baba;
+    display: inline-block; /* Permet au border-bottom de s'adapter au texte */
+    padding-bottom: 10px;
+    font-family: 'Avenir', sans-serif;
+    text-align: center; /* Centrage du texte */
+    width: auto; /* Largeur automatique basée sur le contenu */
+}
+
+.langues-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.langue-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
-#competences {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
+/* Délais d'animation différents pour chaque élément */
+.langue-item:nth-child(1) { animation-delay: 0s; }
+.langue-item:nth-child(2) { animation-delay: 0.5s; }
+.langue-item:nth-child(3) { animation-delay: 1s; }
+.langue-item:nth-child(4) { animation-delay: 1.5s; }
+
+.langue-item:hover {
+    animation-play-state: paused;
+    transform: scale(1.1) translateY(-5px);
 }
 
-#competences h2,
-#databases h2,
-#systems h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #eeeeff;
-    border-bottom: 2px solid #e3baba;
-    display: inline-block;
-    padding-bottom: 10px;
-    font-family: Avenir, sans-serif;
-}
-
-#databases {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px; /* Add margin like other sections */
-}
-
-#systems {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
-}
-
-.logos-container {
-    display: flex;
-    justify-content: space-around; /* Distribute logos evenly */
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 50px; /* Space between logos */
-    padding: 20px 0;
-}
-
-.logo {
-    width: 100px; /* Adjust size as needed */
+.langue-item img {
+    width: 200px;
     height: 100px;
-    animation: float 3s ease-in-out infinite; /* Apply floating animation */
-    object-fit: contain; /* Ensure images scale nicely if aspect ratio differs */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Specific Logo Styles & Animation Delays */
-.java-logo {
-    animation-delay: 0s;
-    width: 150px;
-    height: 150px;
+.langue-niveau {
+    margin-top: 12px;
+    padding: 6px 12px;
+    background: #ffffff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cpp-logo {
-    animation-delay: 0.5s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
-
-.js-logo {
-    animation-delay: 1s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
-
-.html-logo {
-    animation-delay: 2s;
-    width: 150px;
-    height: 150px;
-}
-
-.css-logo {
-    animation-delay: 2.5s;
-    width: 150px;
-    height: 150px;
-}
-
-.php-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-.python-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-/* Database Logo Styles & Animation Delays */
-.sql-logo {
-    animation-delay: 0s;
-    width: 300px;
-    height: 300px;
-}
-.sqlite-logo {
-    animation-delay: 0.5s;
-    width: 300px;
-    height: 300px;
-}
-.excel-logo {
-    animation-delay: 1s;
-    width: 200px;
-    height: 200px;
-}
-.access-logo {
-    animation-delay: 1.5s;
-    width: 200px;
-    height: 200px;
-}
-
-.linux-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.cisco-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.vbox-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-
-/* Floating Animation */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
+    0%, 100% {
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-15px); /* Move up */
+        transform: translateY(-10px);
     }
-    100% {
-        transform: translateY(0px);
+}
+
+@media (max-width: 768px) {
+    .langues-container {
+        gap: 30px;
+    }
+    .langue-item img {
+        width: 80px;
+        height: 50px;
     }
 }
 

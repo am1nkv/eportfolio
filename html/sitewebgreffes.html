@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site France Greffes Coeur Poumons</title>
+    <link rel="stylesheet" href="../css/sitewebgreffes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="../html/presentation.html">Présentation</a></li>
+        <li class="deroulant"><a href="../html/competences.html">Compétences</a>
+            <ul class="sousmenu">
+                <li><a href="../html/hobbies.html">Informatique</a></li>
+                <li><a href="../html/langues.html">Langues parlées</a></li>
+            </ul>
+        </li>
+        <li class="deroulant"><a href="../html/hobbies.html">Hobbies</a></li>
+
+        <li class="deroulant"><a href="../html/sitewebgreffes.html"> Projets académiques </a>
+            <ul class="sousmenu">
+                <li><a href="../html/sitewebgreffes.html">Site web association</a></li>
+                <li><a href="../html/projets.html">Application mobile de dons</a></li>
+                <li><a href="../html/projets.html">Jeu Gomoku</a></li>
+            </ul>
+        </li>
+        <li class="deroulant"><a href="../eportfolio/contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="portfolio-container">
+    <h1>France Greffes Coeur Poumons</h1>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <!-- Remplacez les src par vos images -->
+            <div class="carousel-item active">
+                <img src="../images/capture1.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Page d'accueil avec un carrousel d'images</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture2.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Page d'accueil</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture3.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Bouton pour faire un don</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture4.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Présentation de l'association et de ses membres</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture5.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Brochures et fiches à télécharger</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture6.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Carte de France interactive pour visualiser les associations adhérentes</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture7.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Coordonnées de l'association choisie</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture8.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Page d'inscription</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture9.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Erreur lorsqu'un utilisateur inexistant essaye de se connecter</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture10.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Récapitulatif des réponses de l'utilisateur connecté à l'enquête</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture11.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Statistiques visibles seulement aux admins</div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/capture12.png" alt="Capture d'écran du site - Page">
+                <div class="carousel-caption">Annexe</div>
+            </div>
+        </div>
+
+        <button class="carousel-control prev">&#10094;</button>
+        <button class="carousel-control next">&#10095;</button>
+
+        <div class="carousel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <!-- Ajoutez d'autres indicateurs selon le nombre d'images -->
+        </div>
+    </div>
+
+    <div class="project-description">
+        <p>Site web développé pour France Greffes Coeur Poumons avec une interface intuitive et responsive.
+            J'ai conçu ce projet avec mon équipe en mettant l'accent sur l'accessibilité et l'expérience utilisateur,
+            avec des fonctionnalités comme un formulaire sécurisé, une gestion des inscriptions, connexions et des comptes adhérents / admins.
+        <br>
+        Technologies utilisées : HTML/CSS, JavaScript, PHP, SQLite, PhpStorm.</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carouselInner = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+        const totalItems = items.length;
+
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Mise à jour des indicateurs
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
+
+        // Navigation avec boutons
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Navigation avec indicateurs
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // Défilement automatique (optionnel)
+        let autoSlide = setInterval(nextSlide, 5000);
+
+        // Pause au survol
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(nextSlide, 5000);
+        });
+
+        // Navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    });
+</script>
+</body>
+</html>

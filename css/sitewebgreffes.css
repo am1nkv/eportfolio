@@ -27,114 +27,136 @@ body {
 /*CSS NAVIGATEUR*/
 nav {
     width: 100%;
-    margin: 0 auto;
-    background-color: #02072c;
+    background-color: rgba(2, 7, 44, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-    display: flex; /* ✅ Change ici */
-    justify-content: space-around;
-    padding: 40px;
-    font-family: Avenir, sans-serif;
-    align-items: center;
-    align-content: center;
-    z-index: 999; /* ✅ Assure que la navbar reste au-dessus */
+    display: flex;
+    justify-content: center;
+    padding: 0 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 999;
 }
-
 
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between; /* ou space-evenly */
-    width: 100%; /* ✅ pour qu’il prenne toute la largeur */
-    max-width: 1200px; /* ✅ optionnel pour limiter la largeur */
-    margin: 0 auto; /* ✅ centrer la liste dans la navbar */
-    background-color: #02072c;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-nav ul li{
-    float: left;
-    width: 25%;
-    text-align: center;
+nav ul li {
     position: relative;
-    margin-right: 20px;
-    justify-content: space-evenly;
+    text-align: center;
 }
 
 nav ul li a {
-    font-family: Avenir;
-    font-weight: bold;
+    font-family: Avenir, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 nav li {
-    margin-right: 20px;
+    margin-right: 0;
 }
-nav ul::after{
+
+nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-nav a{
-    font-family: Avenir;
+nav a {
+    font-family: Avenir, sans-serif;
     display: block;
     text-decoration: none;
-    color: #ffffff;
-    border-bottom: 2px solid transparent;
-    padding: 10px 0px;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 20px 18px;
+    transition: color 0.3s ease;
     position: relative;
 }
 
 nav a:hover {
-    color: white;
-    font-family: Avenir, sans-serif;
-    top: -3px; /* déplacement vers le haut */
-    text-shadow: 0 0 5px white, 0 0 10px white; /* effet de brillance */
+    color: #ffffff;
+    top: 0;
+    text-shadow: none;
 }
 
+nav > ul > li > a::after {
+    content: ‘’;
+    position: absolute;
+    bottom: 12px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: linear-gradient(90deg, #e3baba, #a78bfa);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 1px;
+}
 
-.sousmenu{
+nav > ul > li > a:hover::after {
+    transform: scaleX(1);
+}
+
+.sousmenu {
     font-family: Avenir, sans-serif;
     display: none;
     position: absolute;
-    box-shadow: 0px 1px 2px #CCC;
-    width: 100%;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    color: #141a55;
 }
-nav > ul li:hover .sousmenu{
+
+nav > ul li:hover .sousmenu {
     display: block;
 }
 
-.sousmenu li{
+.sousmenu li {
     float: none;
     width: 100%;
     text-align: left;
 }
-.sousmenu a{
-    padding: 10px;
+
+.sousmenu a {
+    padding: 12px 18px;
     border-bottom: none;
-    color: #141a55;
-}
-.sousmenu a:hover{
-    border-bottom: none;
-    color: #141a55;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88em;
 }
 
-.deroulant > a:after{
-    content: contents;
-    font-size: 12px;
-    color: #141a55;
+.sousmenu a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.deroulant > a:after {
+    content: none;
 }
 
 .deroulant ul {
     display: none;
     position: absolute;
-    background-color: white;
-    border-radius: 8%;
-    padding: 10px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 4px 0;
+    min-width: 200px;
 }
 
 .deroulant:hover ul {
@@ -143,7 +165,7 @@ nav > ul li:hover .sousmenu{
 }
 
 .deroulant ul li {
-    margin: 5px 0;
+    margin: 0;
 }
 /*FIN CSS NAVIGATEUR*/
 

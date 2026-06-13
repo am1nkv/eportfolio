@@ -26,113 +26,136 @@ body {
 /*CSS NAVIGATEUR*/
 nav {
     width: 100%;
-    margin: 0 auto;
-    background-color: #02072c;
+    background-color: rgba(2, 7, 44, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-    display: flex; /* ✅ Change ici */
-    justify-content: space-around;
-    padding: 40px;
-    font-family: Avenir, sans-serif;
-    align-items: center;
-    align-content: center;
-    z-index: 999; /* ✅ Assure que la navbar reste au-dessus */
+    display: flex;
+    justify-content: center;
+    padding: 0 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 999;
 }
-
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between; /* ou space-evenly */
-    width: 100%; /* ✅ pour qu’il prenne toute la largeur */
-    max-width: 1200px; /* ✅ optionnel pour limiter la largeur */
-    margin: 0 auto; /* ✅ centrer la liste dans la navbar */
-    background-color: #02072c;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-nav ul li{
-    float: left;
-    width: 25%;
-    text-align: center;
+nav ul li {
     position: relative;
-    margin-right: 20px;
-    justify-content: space-evenly;
+    text-align: center;
 }
 
 nav ul li a {
     font-family: Avenir, sans-serif;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 nav li {
-    margin-right: 20px;
+    margin-right: 0;
 }
-nav ul::after{
+
+nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-nav a{
+nav a {
     font-family: Avenir, sans-serif;
     display: block;
     text-decoration: none;
-    color: #ffffff;
-    border-bottom: 2px solid transparent;
-    padding: 10px 0;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 20px 18px;
+    transition: color 0.3s ease;
     position: relative;
 }
 
 nav a:hover {
-    color: white;
-    font-family: Avenir, sans-serif;
-    top: -3px; /* déplacement vers le haut */
-    text-shadow: 0 0 5px white, 0 0 10px white; /* effet de brillance */
+    color: #ffffff;
+    top: 0;
+    text-shadow: none;
 }
 
+nav > ul > li > a::after {
+    content: ‘’;
+    position: absolute;
+    bottom: 12px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: linear-gradient(90deg, #e3baba, #a78bfa);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 1px;
+}
 
-.sousmenu{
+nav > ul > li > a:hover::after {
+    transform: scaleX(1);
+}
+
+.sousmenu {
     font-family: Avenir, sans-serif;
     display: none;
     position: absolute;
-    box-shadow: 0 1px 2px #CCC;
-    width: 100%;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    color: #141a55;
 }
-nav > ul li:hover .sousmenu{
+
+nav > ul li:hover .sousmenu {
     display: block;
 }
 
-.sousmenu li{
+.sousmenu li {
     float: none;
     width: 100%;
     text-align: left;
 }
-.sousmenu a{
-    padding: 10px;
+
+.sousmenu a {
+    padding: 12px 18px;
     border-bottom: none;
-    color: #141a55;
-}
-.sousmenu a:hover{
-    border-bottom: none;
-    color: #141a55;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88em;
 }
 
-.deroulant > a:after{
-    content: contents;
-    font-size: 12px;
-    color: #141a55;
+.sousmenu a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.deroulant > a:after {
+    content: none;
 }
 
 .deroulant ul {
     display: none;
     position: absolute;
-    background-color: white;
-    border-radius: 8%;
-    padding: 10px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 4px 0;
+    min-width: 200px;
 }
 
 .deroulant:hover ul {
@@ -141,46 +164,112 @@ nav > ul li:hover .sousmenu{
 }
 
 .deroulant ul li {
-    margin: 5px 0;
+    margin: 0;
 }
 /*FIN CSS NAVIGATEUR*/
 
 /* Main Content Area */
 main {
-    padding: 4em 2em; /* More padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 61px);
+    padding: 2em;
     text-align: center;
-    margin-top: 0;
 }
 
-main section {
-    margin-bottom: 3em;
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#accueil {
-    padding: 0;
-}
-
-#accueil h1 {
-    color: #ffffff; /* Match nav color */
-    margin-bottom: 0.5em;
-    margin-top: 0.1em;
-    font-size: 3em;
-    font-family: 'Press Start 2P', sans-serif;
-}
-#accueil p {
-    color: #ffffff; /* Match nav color */
-    margin-bottom: 0.5em;
+.hero-tag {
+    display: inline-block;
     font-family: Avenir, sans-serif;
-    font-size: 1.2em;
+    font-size: 0.8em;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #e3baba;
+    border: 1px solid rgba(227, 186, 186, 0.35);
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 1.5em;
 }
-#imageAmina {
-    margin-bottom: 0;
+
+#hero h1 {
+    color: #ffffff;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-family: 'Press Start 2P', sans-serif;
+    line-height: 1.4;
+    margin-bottom: 0.7em;
+    background: linear-gradient(135deg, #ffffff 25%, #e3baba 65%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-.img-amina {
-    width: 300px;      /* ou en % pour responsive : 50% */
-    height: auto;      /* garde les proportions */
-    max-width: 100%;   /* évite de dépasser le conteneur */
-    border-radius: 10px; /* arrondi optionnel */
+
+.hero-subtitle {
+    color: rgba(255, 255, 255, 0.62);
+    font-family: Avenir, sans-serif;
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 2.5em;
+    max-width: 520px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    font-family: Avenir, sans-serif;
+    font-weight: 700;
+    font-size: 0.95em;
+    text-decoration: none;
+    color: #02072c;
+    background: linear-gradient(135deg, #e3baba, #c9a0dc);
+    padding: 14px 32px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(227, 186, 186, 0.4);
+}
+
+.btn-secondary {
+    font-family: Avenir, sans-serif;
+    font-weight: 700;
+    font-size: 0.95em;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 14px 32px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.wip-note {
+    margin-top: 2em;
+    font-family: Avenir, sans-serif;
+    font-size: 0.82em;
+    color: rgba(255, 255, 255, 0.38);
+    letter-spacing: 0.02em;
 }
 
 /* Particle Background Effect */

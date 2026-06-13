@@ -25,114 +25,136 @@ body {
 /*CSS NAVIGATEUR*/
 nav {
     width: 100%;
-    margin: 0 auto;
-    background-color: #02072c;
+    background-color: rgba(2, 7, 44, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-    display: flex; /* ✅ Change ici */
-    justify-content: space-around;
-    padding: 40px;
-    font-family: Avenir, sans-serif;
-    align-items: center;
-    align-content: center;
-    z-index: 999; /* ✅ Assure que la navbar reste au-dessus */
+    display: flex;
+    justify-content: center;
+    padding: 0 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 999;
 }
-
 
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between; /* ou space-evenly */
-    width: 100%; /* ✅ pour qu’il prenne toute la largeur */
-    max-width: 1200px; /* ✅ optionnel pour limiter la largeur */
-    margin: 0 auto; /* ✅ centrer la liste dans la navbar */
-    background-color: #02072c;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-nav ul li{
-    float: left;
-    width: 25%;
-    text-align: center;
+nav ul li {
     position: relative;
-    margin-right: 20px;
-    justify-content: space-evenly;
+    text-align: center;
 }
 
 nav ul li a {
-    font-family: Avenir;
-    font-weight: bold;
+    font-family: Avenir, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 nav li {
-    margin-right: 20px;
+    margin-right: 0;
 }
-nav ul::after{
+
+nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-nav a{
-    font-family: Avenir;
+nav a {
+    font-family: Avenir, sans-serif;
     display: block;
     text-decoration: none;
-    color: #ffffff;
-    border-bottom: 2px solid transparent;
-    padding: 10px 0px;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 20px 18px;
+    transition: color 0.3s ease;
     position: relative;
 }
 
 nav a:hover {
-    color: white;
-    font-family: Avenir, sans-serif;
-    top: -3px; /* déplacement vers le haut */
-    text-shadow: 0 0 5px white, 0 0 10px white; /* effet de brillance */
+    color: #ffffff;
+    top: 0;
+    text-shadow: none;
 }
 
+nav > ul > li > a::after {
+    content: ‘’;
+    position: absolute;
+    bottom: 12px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: linear-gradient(90deg, #e3baba, #a78bfa);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 1px;
+}
 
-.sousmenu{
+nav > ul > li > a:hover::after {
+    transform: scaleX(1);
+}
+
+.sousmenu {
     font-family: Avenir, sans-serif;
     display: none;
     position: absolute;
-    box-shadow: 0px 1px 2px #CCC;
-    width: 100%;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    color: #141a55;
 }
-nav > ul li:hover .sousmenu{
+
+nav > ul li:hover .sousmenu {
     display: block;
 }
 
-.sousmenu li{
+.sousmenu li {
     float: none;
     width: 100%;
     text-align: left;
 }
-.sousmenu a{
-    padding: 10px;
+
+.sousmenu a {
+    padding: 12px 18px;
     border-bottom: none;
-    color: #141a55;
-}
-.sousmenu a:hover{
-    border-bottom: none;
-    color: #141a55;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88em;
 }
 
-.deroulant > a:after{
-    content: contents;
-    font-size: 12px;
-    color: #141a55;
+.sousmenu a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.deroulant > a:after {
+    content: none;
 }
 
 .deroulant ul {
     display: none;
     position: absolute;
-    background-color: white;
-    border-radius: 8%;
-    padding: 10px;
+    background-color: rgba(5, 12, 55, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 4px 0;
+    min-width: 200px;
 }
 
 .deroulant:hover ul {
@@ -141,162 +163,83 @@ nav > ul li:hover .sousmenu{
 }
 
 .deroulant ul li {
-    margin: 5px 0;
+    margin: 0;
 }
 /*FIN CSS NAVIGATEUR*/
 
 main {
-    flex-grow: 1; /* Allow main to take up available space */
-    padding: 50px;
+    flex-grow: 1;
+    padding: 50px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#competences {
+#competences,
+#databases,
+#systems {
     text-align: center;
     width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
+    max-width: 900px;
+    margin-bottom: 50px;
 }
 
 #competences h2,
 #databases h2,
 #systems h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
+    font-size: 2em;
+    margin-bottom: 36px;
     color: #eeeeff;
     border-bottom: 2px solid #e3baba;
     display: inline-block;
     padding-bottom: 10px;
     font-family: Avenir, sans-serif;
-}
-
-#databases {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px; /* Add margin like other sections */
-}
-
-#systems {
-    text-align: center;
-    width: 100%;
-    max-width: 800px; /* Limit content width */
-    margin-bottom: 40px;
+    letter-spacing: 0.06em;
 }
 
 .logos-container {
     display: flex;
-    justify-content: space-around; /* Distribute logos evenly */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 50px; /* Space between logos */
+    flex-wrap: wrap;
+    gap: 40px;
     padding: 20px 0;
 }
 
 .logo {
-    width: 100px; /* Adjust size as needed */
-    height: 100px;
-    animation: float 3s ease-in-out infinite; /* Apply floating animation */
-    object-fit: contain; /* Ensure images scale nicely if aspect ratio differs */
+    width: 90px;
+    height: 90px;
+    animation: float 3s ease-in-out infinite;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 0px transparent);
 }
 
-/* Specific Logo Styles & Animation Delays */
-.java-logo {
-    animation-delay: 0s;
-    width: 150px;
-    height: 150px;
+.logo:hover {
+    transform: scale(1.15) translateY(-4px);
+    filter: drop-shadow(0 4px 12px rgba(227, 186, 186, 0.5));
+    animation-play-state: paused;
 }
 
-.cpp-logo {
-    animation-delay: 0.5s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
+.java-logo { animation-delay: 0s; }
+.cpp-logo { animation-delay: 0.5s; }
+.js-logo { animation-delay: 1s; }
+.html-logo { animation-delay: 1.5s; }
+.css-logo { animation-delay: 2s; }
+.php-logo { animation-delay: 2.5s; }
+.python-logo { animation-delay: 3s; }
+.sql-logo { animation-delay: 0s; }
+.sqlite-logo { animation-delay: 0.5s; }
+.excel-logo { animation-delay: 1s; }
+.access-logo { animation-delay: 1.5s; }
+.linux-logo { animation-delay: 2s; }
+.cisco-logo { animation-delay: 2.5s; }
+.vbox-logo { animation-delay: 3s; }
 
-.js-logo {
-    animation-delay: 1s; /* Stagger animation start */
-    width: 150px;
-    height: 150px;
-}
-
-.html-logo {
-    animation-delay: 2s;
-    width: 150px;
-    height: 150px;
-}
-
-.css-logo {
-    animation-delay: 2.5s;
-    width: 150px;
-    height: 150px;
-}
-
-.php-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-.python-logo {
-    animation-delay: 3s;
-    width: 150px;
-    height: 150px;
-}
-
-/* Database Logo Styles & Animation Delays */
-.sql-logo {
-    animation-delay: 0s;
-    width: 300px;
-    height: 300px;
-}
-.sqlite-logo {
-    animation-delay: 0.5s;
-    width: 300px;
-    height: 300px;
-}
-.excel-logo {
-    animation-delay: 1s;
-    width: 200px;
-    height: 200px;
-}
-.access-logo {
-    animation-delay: 1.5s;
-    width: 200px;
-    height: 200px;
-}
-
-.linux-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.cisco-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-.vbox-logo {
-    animation-delay: 2s;
-    width: 200px;
-    height: 200px;
-}
-
-
-/* Floating Animation */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-15px); /* Move up */
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
 }
 
 footer {

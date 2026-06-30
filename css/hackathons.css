@@ -4,25 +4,15 @@
     box-sizing: border-box;
 }
 
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
 body {
     height: 100%;
     overflow-x: hidden;
-    background-color : #02072c;
-    position: relative; /* Needed for particle container positioning */
+    background-color: #02072c;
+    position: relative;
     margin: 0;
+    font-family: sans-serif;
     min-height: 100vh;
-    font-family: 'Avenir', sans-serif;
-    padding: 40px 0;
-    color: white;
 }
-
 
 /*CSS NAVIGATEUR*/
 nav {
@@ -88,7 +78,7 @@ nav a:hover {
 }
 
 nav > ul > li > a::after {
-    content: ‘’;
+    content: '';
     position: absolute;
     bottom: 12px;
     left: 18px;
@@ -181,112 +171,143 @@ nav > ul li:hover .sousmenu {
 }
 /*FIN CSS NAVIGATEUR*/
 
-.portfolio-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 61px);
+    padding: 4em 2em;
     text-align: center;
 }
 
-h1 {
-    color: white;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    border-bottom: 2px solid #e3baba;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.carousel {
-    position: relative;
+main section {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 760px;
 }
 
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease;
+#hackathons h1 {
+    color: #ffffff;
+    margin-bottom: 0.6em;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    font-family: 'Press Start 2P', sans-serif;
+    line-height: 1.4;
 }
 
-.carousel-item {
-    min-width: 100%;
-    position: relative;
-}
-
-.carousel-item img {
-    width: 100%;
-    display: block;
-    border-radius: 8px;
-}
-
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.5);
-    color: #2c3e50;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 50%;
-    z-index: 10;
-    transition: all 0.3s;
-}
-
-.carousel-control:hover {
-    background: rgba(255,255,255,0.8);
-}
-
-.prev {
-    left: 20px;
-}
-
-.next {
-    right: 20px;
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.indicator.active {
-    background: #2c3e50;
-}
-
-.project-description {
-    margin-top: 30px;
-    line-height: 1.6;
-    max-width: 800px;
+.section-intro {
+    color: rgba(255, 255, 255, 0.62);
+    font-family: Avenir, sans-serif;
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 2.5em;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.hackathon-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 32px 36px;
+    text-align: left;
+    margin-bottom: 1.5em;
+    transition: border-color 0.3s ease;
+}
+
+.hackathon-card:hover {
+    border-color: rgba(227, 186, 186, 0.35);
+}
+
+.hackathon-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.hackathon-badge {
+    display: inline-block;
+    font-family: Avenir, sans-serif;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #e3baba;
+    border: 1px solid rgba(227, 186, 186, 0.4);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.hackathon-header h2 {
+    color: #ffffff;
+    font-family: Avenir, sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    flex: 1;
+}
+
+.hackathon-result {
+    font-family: Avenir, sans-serif;
+    font-size: 0.9em;
+    color: #a78bfa;
+    font-weight: 600;
+}
+
+.hackathon-card > p {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: Avenir, sans-serif;
+    font-size: 1em;
+    line-height: 1.8;
+    margin-bottom: 1.2em;
+}
+
+.hackathon-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    font-family: Avenir, sans-serif;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    opacity: 0;
+    animation: float 10s infinite linear;
+    color: #e3baba;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 0 5px rgb(227, 186, 186);
+    user-select: none;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateY(-105vh) translateX(20px) rotate(360deg); opacity: 0; }
 }
 
 @media (max-width: 768px) {
@@ -358,12 +379,12 @@ h1 {
         font-size: 0.9em;
     }
 
-    .portfolio-container {
-        padding: 16px;
+    main {
+        padding: 3em 1em;
     }
 
-    h1 {
-        font-size: 1.6em;
+    .hackathon-card {
+        padding: 24px 20px;
     }
 }
 
